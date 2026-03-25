@@ -1,0 +1,14 @@
+Title: AWS Bedrock Overview
+
+AWS Bedrock is a fully managed service that provides access to high-performing foundation models (FMs) from leading AI companies including Anthropic, Amazon, Meta, Mistral, and Cohere — all through a single API.
+
+Key capabilities:
+- Access to Claude, Titan, Llama, Mistral, and Cohere models
+- Knowledge Bases for automated RAG pipelines
+- Agents for multi-step task automation
+- Model evaluation and fine-tuning
+- Guardrails for responsible AI deployment
+
+Bedrock removes infrastructure management — no GPU clusters to provision, no model serving to configure. You pay per token consumed.
+
+Security: All data stays within your AWS account. Models are not trained on your data by default.

@@ -1,0 +1,19 @@
+Title: Bedrock Knowledge Bases Guide
+
+Bedrock Knowledge Bases automates the full RAG pipeline — chunking, embedding, and indexing your documents into a managed vector store, then retrieving relevant passages at query time.
+
+How it works:
+1. Store documents in an S3 bucket
+2. Create a Knowledge Base pointing to that S3 location
+3. Bedrock chunks documents, generates embeddings using Amazon Titan or Cohere, and stores them in an OpenSearch Serverless collection
+4. At query time, Bedrock embeds the query and retrieves the top-k most relevant chunks
+5. Retrieved chunks are passed to the foundation model as context for grounded generation
+
+Supported document types: PDF, TXT, HTML, Markdown, Word, CSV
+
+Chunking strategies:
+- Fixed size (default): splits by token count
+- Hierarchical: parent-child chunks for better context
+- Semantic: splits on meaning boundaries using an LLM
+
+The RetrieveAndGenerate API handles the full pipeline in one call. The Retrieve API returns chunks only, giving you control over generation.
