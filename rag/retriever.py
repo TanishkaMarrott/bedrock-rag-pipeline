@@ -37,21 +37,21 @@ _MOCK_CHUNKS = [
         content="AWS Bedrock provides fully managed access to foundation models. "
                 "It supports Claude, Titan, Llama, and other models via a single API.",
         score=0.94,
-        source_doc="bedrock-overview.txt",
+        source="bedrock-overview.txt",
         location="paragraph 1",
     ),
     RetrievedChunk(
         content="Bedrock Knowledge Bases automate the RAG pipeline: chunking, embedding, "
                 "and indexing documents into a managed vector store (OpenSearch Serverless).",
         score=0.89,
-        source_doc="bedrock-kb-guide.txt",
+        source="bedrock-kb-guide.txt",
         location="paragraph 3",
     ),
     RetrievedChunk(
         content="The RetrieveAndGenerate API retrieves relevant passages and passes them "
                 "to the foundation model as context, producing grounded, citation-backed answers.",
         score=0.85,
-        source_doc="bedrock-api-reference.txt",
+        source="bedrock-api-reference.txt",
         location="section 4.2",
     ),
 ]
@@ -68,7 +68,7 @@ _MOCK_ANSWERS = {
 
 
 class BedrockRetriever:
-    def __init__(self, client: BedrockClient) -> None:
+    def __init__(self, client: BedrockClient | None = None) -> None:
         self.client = client
 
     def retrieve_and_generate(self, query: str) -> RAGResponse:
@@ -108,7 +108,7 @@ class BedrockRetriever:
                     chunks.append(RetrievedChunk(
                         content=ref["content"]["text"],
                         score=ref.get("score", 0.0),
-                        source_doc=ref.get("location", {}).get("s3Location", {}).get("uri", "unknown"),
+                        source=ref.get("location", {}).get("s3Location", {}).get("uri", "unknown"),
                         location=str(ref.get("location", "")),
                     ))
 
@@ -140,7 +140,7 @@ class BedrockRetriever:
                 RetrievedChunk(
                     content=r["content"]["text"],
                     score=r.get("score", 0.0),
-                    source_doc=r.get("location", {}).get("s3Location", {}).get("uri", ""),
+                    source=r.get("location", {}).get("s3Location", {}).get("uri", ""),
                 )
                 for r in response.get("retrievalResults", [])
             ]
