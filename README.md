@@ -7,6 +7,8 @@ Production RAG pipeline built on AWS Bedrock's native Knowledge Base service —
 ![Claude](https://img.shields.io/badge/LLM-Claude%203.5%20Sonnet-purple)
 ![RAG](https://img.shields.io/badge/Pattern-RAG-green)
 ![CI](https://github.com/TanishkaMarrott/bedrock-rag-pipeline/actions/workflows/ci.yml/badge.svg)
+![Tests](https://img.shields.io/badge/Tests-9%20passing-brightgreen)
+![Coverage](https://img.shields.io/badge/Coverage-37%25%20schema%2Fretriever-yellow)
 
 ---
 
