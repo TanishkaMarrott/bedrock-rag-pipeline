@@ -10,6 +10,9 @@ Production RAG pipeline built on AWS Bedrock's native Knowledge Base service —
 ![Tests](https://img.shields.io/badge/Tests-9%20passing-brightgreen)
 ![Coverage](https://img.shields.io/badge/Coverage-37%25%20schema%2Fretriever-yellow)
 
+
+> *Personal portfolio project, built and iterated Mar–Apr 2026.*
+
 ---
 
 ## The Problem
